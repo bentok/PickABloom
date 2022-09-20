@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx6bb2xbmbxnq"]
+
+[ext_resource type="Script" path="res://StaticBody2d.cs" id="1_gsty6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rruv4"]
+
+[node name="Node2d" type="Node2D"]
+
+[node name="StaticBody2d" type="StaticBody2D" parent="."]
+script = ExtResource("1_gsty6")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="StaticBody2d"]
+position = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_rruv4")
+
+[node name="Sprite2d" type="Sprite2D" parent="StaticBody2d"]

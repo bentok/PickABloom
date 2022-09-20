@@ -1,0 +1,27 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PickABloom", "PickABloom.csproj", "{C346A213-4119-4B0C-B644-17E981900298}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharpScripting", "FSharpScripting\FSharpScripting.fsproj", "{47398CC0-BC38-4E01-B8C2-00076689FB1F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	Debug|Any CPU = Debug|Any CPU
+	ExportDebug|Any CPU = ExportDebug|Any CPU
+	ExportRelease|Any CPU = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C346A213-4119-4B0C-B644-17E981900298}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C346A213-4119-4B0C-B644-17E981900298}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C346A213-4119-4B0C-B644-17E981900298}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{C346A213-4119-4B0C-B644-17E981900298}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{C346A213-4119-4B0C-B644-17E981900298}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{C346A213-4119-4B0C-B644-17E981900298}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+		{47398CC0-BC38-4E01-B8C2-00076689FB1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47398CC0-BC38-4E01-B8C2-00076689FB1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47398CC0-BC38-4E01-B8C2-00076689FB1F}.ExportDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47398CC0-BC38-4E01-B8C2-00076689FB1F}.ExportDebug|Any CPU.Build.0 = Debug|Any CPU
+		{47398CC0-BC38-4E01-B8C2-00076689FB1F}.ExportRelease|Any CPU.ActiveCfg = Debug|Any CPU
+		{47398CC0-BC38-4E01-B8C2-00076689FB1F}.ExportRelease|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+EndGlobal
