@@ -1,16 +1,70 @@
-[gd_scene load_steps=3 format=3 uid="uid://dx6bb2xbmbxnq"]
+[gd_scene load_steps=13 format=3 uid="uid://dlidm50obm0nn"]
 
-[ext_resource type="Script" path="res://StaticBody2d.cs" id="1_gsty6"]
+[ext_resource type="Texture2D" uid="uid://c3j1l2jyqy60u" path="res://assets/balloon_red.png" id="1_4qx5d"]
+[ext_resource type="Script" path="res://balloon.cs" id="2_8ed5w"]
+[ext_resource type="AudioStream" uid="uid://iqyy1iks568s" path="res://assets/pop.ogg" id="3_litq2"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rruv4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cqu2"]
+atlas = ExtResource("1_4qx5d")
+region = Rect2(0, 32, 16, 32)
 
-[node name="Node2d" type="Node2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wug1"]
+atlas = ExtResource("1_4qx5d")
+region = Rect2(16, 32, 16, 32)
 
-[node name="StaticBody2d" type="StaticBody2D" parent="."]
-script = ExtResource("1_gsty6")
+[sub_resource type="AtlasTexture" id="AtlasTexture_75kqd"]
+atlas = ExtResource("1_4qx5d")
+region = Rect2(32, 32, 16, 32)
 
-[node name="CollisionShape2d" type="CollisionShape2D" parent="StaticBody2d"]
-position = Vector2(10, 10)
-shape = SubResource("RectangleShape2D_rruv4")
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvjfc"]
+atlas = ExtResource("1_4qx5d")
+region = Rect2(40, 56, 5, 7)
 
-[node name="Sprite2d" type="Sprite2D" parent="StaticBody2d"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rrv6"]
+atlas = ExtResource("1_4qx5d")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hfjn"]
+atlas = ExtResource("1_4qx5d")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w31in"]
+atlas = ExtResource("1_4qx5d")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hfjsw"]
+animations = [{
+"frames": [SubResource("AtlasTexture_2cqu2"), SubResource("AtlasTexture_4wug1"), SubResource("AtlasTexture_75kqd"), SubResource("AtlasTexture_uvjfc")],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [SubResource("AtlasTexture_3rrv6"), SubResource("AtlasTexture_0hfjn"), SubResource("AtlasTexture_w31in")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xsbln"]
+radius = 9.0
+height = 22.0
+
+[node name="balloon" type="AnimatedSprite2D"]
+frames = SubResource("SpriteFrames_hfjsw")
+animation = &"death"
+script = ExtResource("2_8ed5w")
+
+[node name="Area2d" type="Area2D" parent="."]
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Area2d"]
+position = Vector2(0, -6)
+shape = SubResource("CapsuleShape2D_xsbln")
+
+[node name="pop_sound" type="AudioStreamPlayer2D" parent="Area2d"]
+stream = ExtResource("3_litq2")
+
+[node name="VisibleOnScreenNotifier2d" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, 8.5)
+scale = Vector2(1, 0.15)
+
+[connection signal="input_event" from="Area2d" to="." method="_on_area_2d_input_event"]
